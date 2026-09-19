@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sandal">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeevika R | Electrical and Electronics Engineering Portfolio & Resume</title>
+  <meta name="description"
+    content="Professional portfolio and ATS-friendly CV of Jeevika R, an Electrical and Electronics Engineering student specializing in Electrical, Electronics, Embedded Systems, IoT, and Technology.">
+  <meta name="author" content="Jeevika R">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Dynamic Cursor Reactive Background Canvas & Custom Cursor -->
+  <canvas id="cursorInteractiveCanvas" class="cursor-bg-canvas"></canvas>
+  <div id="cursorRing" class="custom-cursor-ring"><div id="cursorDot" class="cursor-dot"></div></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon"><i data-lucide="zap"></i></span>
+        <span class="logo-text">JEEVIKA<span class="highlight">.R</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-item">About</a>
+        <a href="#education" class="nav-item">Education</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#projects" class="nav-item">Projects</a>
+        <a href="#experience" class="nav-item">Experience</a>
+        <a href="#certifications" class="nav-item">Certifications</a>
+        <a href="#ats-resume" class="nav-item nav-special-link"><i data-lucide="file-text"></i> ATS Resume</a>
+        <a href="#contact" class="nav-item nav-btn">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggleBtn" class="icon-btn" title="Toggle Theme" aria-label="Toggle Theme">
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
+        </button>
+        <button id="customizerToggleBtn" class="btn btn-outline-sm" title="Edit Placeholders">
+          <i data-lucide="edit-3"></i> Fill Details
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Quick Details Editor Drawer (Helps Jeevika customize placeholders live) -->
+  <div class="customizer-drawer" id="customizerDrawer">
+    <div class="drawer-header">
+      <h3><i data-lucide="user-check"></i> Fill Your Information</h3>
+      <button class="close-drawer-btn" id="closeDrawerBtn"><i data-lucide="x"></i></button>
+    </div>
+    <div class="drawer-body">
+      <p class="drawer-note"><i data-lucide="info"></i> Update your personal details below. Changes reflect immediately
+        on both the Portfolio and ATS Resume!</p>
+
+      <form id="customizerForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="inputName" value="Jeevika R">
+        </div>
+        <div class="form-group">
+          <label>College / University Name</label>
+          <input type="text" id="inputCollege" placeholder="e.g. ABC Institute of Technology">
+        </div>
+        <div class="form-group">
+          <label>Department / Major</label>
+          <input type="text" id="inputDepartment" value="Electrical and Electronics Engineering">
+        </div>
+        <div class="form-group flex-2">
+          <div>
+            <label>Year of Study</label>
+            <input type="text" id="inputYearOfStudy" placeholder="e.g. 3rd Year / 4th Year">
+          </div>
+          <div>
+            <label>Graduation Year</label>
+            <input type="text" id="inputGradYear" placeholder="e.g. 2026">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>CGPA / Percentage</label>
+          <input type="text" id="inputCGPA" placeholder="e.g. 8.75 / 10">
+        </div>
+        <div class="form-group flex-2">
+          <div>
+            <label>Phone Number</label>
+            <input type="text" id="inputPhone" value="+91 7397227878">
+          </div>
+          <div>
+            <label>Email Address</label>
+            <input type="email" id="inputEmail" value="jeevikasathiya06@gmail.com">
+          </div>
+        </div>
+        <div class="form-group flex-2">
+          <div>
+            <label>LinkedIn Profile URL</label>
+            <input type="text" id="inputLinkedin" value="https://www.linkedin.com/in/jeevika-r-939074353">
+          </div>
+          <div>
+            <label>GitHub Profile URL</label>
+            <input type="text" id="inputGithub" placeholder="github.com/jeevika-r">
+          </div>
+        </div>
+        <div class="drawer-actions">
+          <button type="button" class="btn btn-primary btn-block" id="saveDetailsBtn">
+            <i data-lucide="check-circle"></i> Save & Apply to Portfolio
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <canvas id="heroCanvas" class="hero-canvas"></canvas>
+      <div class="hero-bg-accent"></div>
+      <div class="container hero-grid">
+        <div class="hero-image-wrapper animate-slide-up">
+          <div class="profile-image-card">
+            <img src="jeevika_profile.jpg" alt="Jeevika R - Electrical & Electronics Engineering Student"
+              class="profile-img">
+
+
+
+            <div class="profile-badge">
+              <span class="badge-dot"></span>
+              <span>Electrical & Electronics Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-text animate-fade-in">
+          <h1 class="hero-title">
+            <span class="gradient-text data-field-name">Jeevika R</span>
+          </h1>
+
+          <h2 class="hero-subtitle">
+            <i data-lucide="zap" class="inline-icon"></i> <span id="dynamicSubtitle">Electrical and Electronics
+              Engineering Student</span>
+          </h2>
+
+          <p class="hero-description">
+            I am an Electrical and Electronics Engineering student with an interest in electronics, embedded systems and
+            emerging technologies. I enjoy learning new concepts, developing practical skills and working on
+            technology-based projects.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#ats-resume" class="btn btn-primary">
+              <i data-lucide="file-text"></i> View My Resume
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+              <i data-lucide="folder-git-2"></i> View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i data-lucide="mail"></i> Contact Me
+            </a>
+            <button onclick="window.print()" class="btn btn-accent" title="Print or Save Resume as PDF">
+              <i data-lucide="download"></i> Download Resume
+            </button>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/jeevika-r-939074353" class="social-link data-link-linkedin"
+              target="_blank" rel="noopener" title="LinkedIn Profile">
+              <i data-lucide="linkedin"></i> <span
+                class="social-label data-field-linkedin">linkedin.com/in/jeevika-r</span>
+            </a>
+            <a href="#" class="social-link data-link-github" target="_blank" rel="noopener" title="GitHub Profile">
+              <i data-lucide="github"></i> <span class="social-label data-field-github">[Add GitHub Profile]</span>
+            </a>
+            <a href="mailto:jeevikasathiya06@gmail.com" class="social-link data-link-email" title="Email Contact">
+              <i data-lucide="mail"></i> <span class="social-label data-field-email">jeevikasathiya06@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT ME -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Overview</span>
+          <h2 class="section-title"><i data-lucide="user"></i> About Me</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-photo-col">
+            <div class="about-photo-card">
+              <img src="jeevika_profile.jpg" alt="Jeevika R Profile" class="about-photo">
+            </div>
+          </div>
+
+          <div class="about-card">
+            <p class="about-text">
+              I am an <strong>Electrical and Electronics Engineering (EEE)</strong> student dedicated to building a
+              strong foundation in electrical power, hardware engineering, embedded microcontrollers, circuit design,
+              and technology-driven solutions.
+            </p>
+            <p class="about-text">
+              My core academic and technical interests lie in <strong>electronics, embedded systems, and emerging
+                technologies</strong>. I focus on bridging theoretical knowledge with practical project
+              execution—continuously learning modern tools, prototyping hardware modules, and developing technical
+              skills suitable for entry-level engineering roles.
+            </p>
+            <p class="about-text">
+              I am passionate about continuous learning, professional development, and collaborating on meaningful
+              engineering projects that address practical real-world problems.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-box">
+                <i data-lucide="book-open"></i>
+                <div>
+                  <h4>Engineering Discipline</h4>
+                  <p>Electrical & Electronics</p>
+                </div>
+              </div>
+              <div class="highlight-box">
+                <i data-lucide="cpu"></i>
+                <div>
+                  <h4>Technical Focus</h4>
+                  <p>Embedded Systems & IoT</p>
+                </div>
+              </div>
+              <div class="highlight-box">
+                <i data-lucide="trending-up"></i>
+                <div>
+                  <h4>Professional Goal</h4>
+                  <p>Continuous Learning & Development</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EDUCATION -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Academic Background</span>
+          <h2 class="section-title"><i data-lucide="graduation-cap"></i> Education</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="timeline">
+          <!-- Main Engineering Degree Card -->
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <i data-lucide="award"></i>
+            </div>
+            <div class="timeline-content card-hover">
+              <div class="card-header-flex">
+                <div>
+                  <h3 class="degree-title"><span class="data-field-degree">Electrical and Electronics Engineering</span>
+                  </h3>
+                  <div class="institution-name"><i data-lucide="building-2"></i> <span class="data-field-college">Nandha
+                      Engineering College</span></div>
+                </div>
+                <div class="duration-badge">
+                  <i data-lucide="calendar"></i> Year of Study: <span class="data-field-year-study">3rd Year</span> |
+                  Expected Graduation: <span class="data-field-grad-year">2026</span>
+                </div>
+              </div>
+              <div class="education-details">
+                <p><strong>Department:</strong> <span class="data-field-department">Electrical and Electronics
+                    Engineering</span></p>
+                <p><strong>Academic Performance:</strong> <span class="data-field-cgpa">9.045 CGPA</span></p>
+                <div class="coursework-tags">
+                  <span class="tag">Digital Electronics</span>
+                  <span class="tag">Microcontrollers & Embedded Systems</span>
+                  <span class="tag">Electrical Machines & Power Systems</span>
+                  <span class="tag">Analog & Power Electronics</span>
+                  <span class="tag">Control Systems</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. TECHNICAL SKILLS -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Competencies</span>
+          <h2 class="section-title"><i data-lucide="code-2"></i> Technical Skills</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- Programming -->
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <div class="skill-icon"><i data-lucide="terminal"></i></div>
+              <h3>Programming Languages</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill"><i data-lucide="code"></i> C</span>
+              <span class="skill-pill"><i data-lucide="code"></i> Java</span>
+            </div>
+          </div>
+
+          <!-- Embedded Systems -->
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <div class="skill-icon"><i data-lucide="cpu"></i></div>
+              <h3>Embedded Systems</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill"><i data-lucide="cpu"></i> Arduino</span>
+              <span class="skill-pill"><i data-lucide="wifi"></i> ESP32</span>
+            </div>
+          </div>
+
+          <!-- Electronics -->
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <div class="skill-icon"><i data-lucide="zap"></i></div>
+              <h3>Electronics Core</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill"><i data-lucide="activity"></i> Circuit Simulation</span>
+              <span class="skill-pill"><i data-lucide="binary"></i> Digital Logic</span>
+              <span class="skill-pill"><i data-lucide="radio"></i> Sensors & Interfacing</span>
+            </div>
+          </div>
+
+          <!-- Software/Tools -->
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <div class="skill-icon"><i data-lucide="wrench"></i></div>
+              <h3>Software & Simulation Tools</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill"><i data-lucide="settings"></i> MATLAB / Simulink</span>
+              <span class="skill-pill"><i data-lucide="cpu"></i> Keil uVision</span>
+              <span class="skill-pill"><i data-lucide="layers"></i> Proteus</span>
+            </div>
+          </div>
+
+          <!-- Other Relevant Skills -->
+          <div class="skill-card full-width-card">
+            <div class="skill-card-header">
+              <div class="skill-icon"><i data-lucide="layers"></i></div>
+              <h3>Other Technical Knowledge & Languages</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-pill"><i data-lucide="settings-2"></i> Programmable Logic Controllers (PLC)</span>
+              <span class="skill-pill"><i data-lucide="cpu"></i> Hardware Debugging & Circuit Testing</span>
+              <span class="skill-pill"><i data-lucide="globe-2"></i> Languages Known: English, Tamil</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PROJECTS -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Practical Work</span>
+          <h2 class="section-title"><i data-lucide="folder-git-2"></i> Academic & Technical Projects</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Featured Project: Smart Solar Priority Power Management System -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-tag-badge"><i data-lucide="sun"></i> Renewable Energy & Embedded Systems</div>
+              <h3 class="project-title">Smart Solar Priority Power Management System</h3>
+            </div>
+            <div class="project-body">
+              <p class="project-desc"><strong>Overview:</strong> An automated hybrid energy management system designed
+                to eliminate rural and semi-urban power outages by intelligently prioritizing power sources to maximize
+                solar energy usage and minimize electricity costs.</p>
+
+              <div class="project-meta-list">
+                <div class="meta-item">
+                  <span class="meta-label"><i data-lucide="alert-circle"></i> Problem Addressed:</span>
+                  <span class="meta-value">Frequent power cuts and heavy dependency on costly, polluting grid
+                    electricity and diesel generators in remote and semi-urban areas.</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label"><i data-lucide="compass"></i> SDG Alignment:</span>
+                  <span class="meta-value">SDG 7 (Affordable & Clean Energy) | SDG 13 (Climate Action)</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label"><i data-lucide="layers"></i> 5-Tier Priority Switching Logic:</span>
+                  <span class="meta-value">1. Solar (Day/Primary) → 2. Battery Inverter (Night, >20% SOC) → 3. AC Grid
+                    (Night, <20% SOC) → 4. Generator (Power Cut) → 5. Auto-Switch back to Solar.</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label"><i data-lucide="cpu"></i> Technical Domain & Tools:</span>
+                  <span class="meta-value">Embedded Systems, C Programming, Power Electronics, Charge Controllers &
+                    Relay Switching, MATLAB/Simulink & Wokwi Simulation.</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label"><i data-lucide="check-square"></i> Key Features:</span>
+                  <span class="meta-value">Zero-overlap priority logic, automated safe AC switching (no manual
+                    intervention), real-time battery & grid telemetry, scalable rural deployment design.</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label"><i data-lucide="bar-chart-2"></i> Technology Readiness Level:</span>
+                  <span class="meta-value">TRL 2–3 — Concept Formulated & Proof-of-Concept Prototype Validated.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. INDUSTRIAL VISIT / FIELD VISIT -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Industry Exposure</span>
+          <h2 class="section-title"><i data-lucide="briefcase"></i> Industrial Visit / Field Visit</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="experience-card">
+          <div class="card-header-flex">
+            <div>
+              <h3 class="degree-title">Coral Coil India Private Limited, Erode</h3>
+              <div class="institution-name"><i data-lucide="map-pin"></i> Field Visit</div>
+            </div>
+            <div class="duration-badge">
+              <i data-lucide="compass"></i> Industrial Visit / Field Visit
+            </div>
+          </div>
+          <div class="education-details">
+            <ul class="styled-list" style="margin-top: 1rem;">
+              <li><i data-lucide="check-circle-2"></i> <span>Observed the manufacturing process of wind-turbine generators, including stator and rotor assembly.</span></li>
+              <li><i data-lucide="check-circle-2"></i> <span>Gained practical exposure to industrial operations, quality testing and real-time production systems.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CERTIFICATIONS -->
+    <section class="section certifications-section" id="certifications">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Verified Qualifications</span>
+          <h2 class="section-title"><i data-lucide="shield-check"></i> Certifications</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="certifications-grid">
+          <div class="cert-card">
+            <div class="cert-icon"><i data-lucide="award"></i></div>
+            <div class="cert-details">
+              <h4>NPTEL Online Certification</h4>
+              <p class="cert-org"><i data-lucide="globe"></i> Issuing Organization: NPTEL / SWAYAM (IIT & IISc)</p>
+              <p class="cert-date"><i data-lucide="calendar"></i> National Technical Certification</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. ACHIEVEMENTS & 9. WORKSHOPS / TRAINING -->
+    <section class="section split-section" id="achievements-training">
+      <div class="container grid-2-col">
+
+        <!-- 8. ACHIEVEMENTS -->
+        <div class="sub-section">
+          <div class="section-title-wrap">
+            <span class="section-tag">Recognition</span>
+            <h3 class="sub-title"><i data-lucide="trophy"></i> Achievements</h3>
+          </div>
+          <div class="info-card">
+            <ul class="styled-list">
+              <li><i data-lucide="trophy"></i> <span><strong>1st Prize Winner — "Green Energy" Event:</strong> Awarded
+                  First Place for presenting innovative green energy and sustainable technology concepts.</span></li>
+              <li><i data-lucide="award"></i> <span><strong>3rd Prize Winner — Project Expo at P.A. College of
+                    Engineering:</strong> Secured Third Place in the inter-collegiate Project Expo for presenting a
+                  working technical project prototype.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 9. WORKSHOPS / TRAINING -->
+        <div class="sub-section">
+          <div class="section-title-wrap">
+            <span class="section-tag">Learning & Development</span>
+            <h3 class="sub-title"><i data-lucide="book-marked"></i> Workshops & Technical Training</h3>
+          </div>
+          <div class="info-card">
+            <ul class="styled-list">
+              <li><i data-lucide="check-circle-2"></i> <span><strong>Hands-on Workshop on Programmable Logic Controllers
+                    (PLC):</strong> Completed practical technical workshop on PLC programming, ladder logic, and
+                  industrial automation principles.</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. SOFT SKILLS -->
+    <section class="section soft-skills-section" id="soft-skills">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Interpersonal Strengths</span>
+          <h2 class="section-title"><i data-lucide="users"></i> Soft Skills</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="soft-skills-grid">
+          <div class="soft-skill-pill"><i data-lucide="message-square"></i> Communication</div>
+          <div class="soft-skill-pill"><i data-lucide="users-2"></i> Teamwork</div>
+          <div class="soft-skill-pill"><i data-lucide="clock"></i> Time Management</div>
+          <div class="soft-skill-pill"><i data-lucide="lightbulb"></i> Problem Solving</div>
+          <div class="soft-skill-pill"><i data-lucide="refresh-cw"></i> Adaptability</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. AMBITION / CAREER INTEREST -->
+    <section class="section ambition-section" id="ambition">
+      <div class="container">
+        <div class="ambition-card">
+          <div class="quote-icon"><i data-lucide="quote"></i></div>
+          <span class="section-tag">Career Objective & Vision</span>
+          <h2 class="ambition-heading">Ambition & Professional Goals</h2>
+          <blockquote class="ambition-statement">
+            "My ambition is to build a successful career in the electronics and technology field, continuously improve
+            my knowledge and skills, and contribute to practical and innovative solutions."
+          </blockquote>
+          <div class="author-tag">— <span class="data-field-name">Jeevika R</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. RESUME / CV SECTION (ATS FRIENDLY VIEWER & PRINTABLE) -->
+    <section class="section ats-resume-section" id="ats-resume">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Official Document</span>
+          <h2 class="section-title"><i data-lucide="file-text"></i> ATS-Friendly Professional Resume</h2>
+          <p class="section-subtitle">Formatted specifically for ATS (Applicant Tracking Systems), recruiters, and
+            college placement drives.</p>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Controls for ATS Resume -->
+        <div class="ats-controls">
+          <button onclick="window.print()" class="btn btn-primary">
+            <i data-lucide="printer"></i> Print / Save as ATS PDF
+          </button>
+          <button id="copyResumeBtn" class="btn btn-secondary">
+            <i data-lucide="copy"></i> Copy Raw Text for Applications
+          </button>
+          <button id="quickEditBtn2" class="btn btn-outline">
+            <i data-lucide="edit-2"></i> Edit Contact & College Info
+          </button>
+        </div>
+
+        <!-- ATS Resume Document Container (Clean ATS Paper Styling) -->
+        <div class="ats-paper" id="atsPaper">
+
+          <!-- ATS HEADER -->
+          <header class="ats-header">
+            <h1 class="ats-name data-field-name">JEEVIKA R</h1>
+            <div class="ats-contact-line">
+              <span class="ats-contact-item"><i data-lucide="phone"></i> <span class="data-field-phone">+91
+                  7397227878</span></span> |
+              <span class="ats-contact-item"><i data-lucide="mail"></i> <span
+                  class="data-field-email">jeevikasathiya06@gmail.com</span></span> |
+              <span class="ats-contact-item"><i data-lucide="linkedin"></i> <span
+                  class="data-field-linkedin">linkedin.com/in/jeevika-r</span></span> |
+              <span class="ats-contact-item"><i data-lucide="github"></i> <span class="data-field-github">[Add GitHub
+                  Profile]</span></span>
+            </div>
+          </header>
+
+          <hr class="ats-divider">
+
+          <!-- ATS SECTION: PROFESSIONAL SUMMARY -->
+          <section class="ats-block">
+            <h2 class="ats-heading">PROFESSIONAL SUMMARY</h2>
+            <p class="ats-text">
+              Motivated Electrical and Electronics Engineering student with a strong passion for electronics, embedded
+              systems, and emerging technologies. Equipped with foundational skills in circuit principles and
+              microcontroller applications, seeking entry-level engineering roles and internship opportunities to
+              deliver practical, innovative technological solutions.
+            </p>
+          </section>
+
+          <!-- ATS SECTION: EDUCATION -->
+          <section class="ats-block">
+            <h2 class="ats-heading">EDUCATION</h2>
+            <div class="ats-entry">
+              <div class="ats-entry-header">
+                <span class="ats-title-bold"><span class="data-field-degree">Electrical and Electronics
+                    Engineering</span></span>
+                <span class="ats-date">Year of Study: <span class="data-field-year-study">3rd Year</span> | Expected:
+                  <span class="data-field-grad-year">2026</span></span>
+              </div>
+              <div class="ats-institution"><span class="data-field-college">Nandha Engineering College</span></div>
+              <div class="ats-detail">Academic Standing: <span class="data-field-cgpa">9.045 CGPA</span></div>
+            </div>
+          </section>
+
+          <!-- ATS SECTION: TECHNICAL SKILLS -->
+          <section class="ats-block">
+            <h2 class="ats-heading">TECHNICAL SKILLS</h2>
+            <ul class="ats-list">
+              <li><strong>Programming:</strong> C, Java</li>
+              <li><strong>Embedded Systems:</strong> Arduino, ESP32</li>
+              <li><strong>Electronics Core:</strong> Circuit Simulation, Digital Logic, Sensors & Interfacing</li>
+              <li><strong>Software & Tools:</strong> MATLAB / Simulink, Keil uVision, Proteus</li>
+              <li><strong>Soft Skills:</strong> Communication, Teamwork, Time management, Problem solving, Adaptability
+              </li>
+            </ul>
+          </section>
+
+          <!-- ATS SECTION: PROJECTS -->
+          <section class="ats-block">
+            <h2 class="ats-heading">PROJECTS</h2>
+
+            <div class="ats-entry">
+              <div class="ats-entry-header">
+                <span class="ats-title-bold">Smart Solar Priority Power Management System</span>
+                <span class="ats-date">Academic / Technical Project</span>
+              </div>
+              <ul class="ats-list">
+                <li><strong>Problem & SDG Mapping:</strong> Developed an automated hybrid renewable energy control
+                  system to eliminate rural power outages, aligning with SDG 7 (Affordable & Clean Energy) and SDG 13
+                  (Climate Action).</li>
+                <li><strong>5-Tier Priority Switching Algorithm:</strong> Engineered zero-overlap priority logic: Solar
+                  (Day/Primary) → Battery Inverter (Night, >20% SOC) → AC Grid (Night, <20% SOC) → Generator Backup →
+                    Auto-Solar Restore.</li>
+                <li><strong>Technical Implementation:</strong> Integrated Embedded C microcontroller control, charge
+                  controllers, relay switching networks, and real-time battery/grid telemetry for safe, automated power
+                  source selection.</li>
+                <li><strong>Technology Readiness Level (TRL):</strong> Formulated and validated TRL 2–3 proof-of-concept
+                  model for low-cost, scalable rural hybrid energy deployment.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ATS SECTION: INDUSTRIAL VISIT / FIELD VISIT -->
+          <section class="ats-block">
+            <h2 class="ats-heading">INDUSTRIAL VISIT / FIELD VISIT</h2>
+            <div class="ats-entry">
+              <div class="ats-entry-header">
+                <span class="ats-title-bold">Coral Coil India Private Limited, Erode</span>
+                <span class="ats-date">Field Visit</span>
+              </div>
+              <ul class="ats-list">
+                <li>Observed the manufacturing process of wind-turbine generators, including stator and rotor assembly.</li>
+                <li>Gained practical exposure to industrial operations, quality testing and real-time production systems.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ATS SECTION: CERTIFICATIONS -->
+          <section class="ats-block">
+            <h2 class="ats-heading">CERTIFICATIONS</h2>
+            <ul class="ats-list">
+              <li><strong>NPTEL Online Certification</strong> — NPTEL / SWAYAM (IIT & IISc)</li>
+            </ul>
+          </section>
+
+          <!-- ATS SECTION: ACHIEVEMENTS -->
+          <section class="ats-block">
+            <h2 class="ats-heading">ACHIEVEMENTS</h2>
+            <ul class="ats-list">
+              <li><strong>1st Prize Winner:</strong> Secured First Place in the "Green Energy" technical event for
+                presenting innovative sustainable power and green technology solutions.</li>
+              <li><strong>3rd Prize Winner:</strong> Won Third Place in the inter-collegiate Project Expo held at P.A.
+                College of Engineering for showcasing a working technical project prototype.</li>
+            </ul>
+          </section>
+
+          <!-- ATS SECTION: ADDITIONAL INFORMATION -->
+          <section class="ats-block">
+            <h2 class="ats-heading">ADDITIONAL INFORMATION</h2>
+            <ul class="ats-list">
+              <li><strong>Workshops & Technical Training:</strong> Hands-on Workshop on Programmable Logic Controllers
+                (PLC) & Industrial Automation</li>
+              <li><strong>Languages Known:</strong> English, Tamil</li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title"><i data-lucide="mail"></i> Contact Information</h2>
+          <p class="section-subtitle">Open for campus placements, internship opportunities, and entry-level engineering
+            roles.</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon"><i data-lucide="user"></i></div>
+            <h4>Full Name</h4>
+            <p class="data-field-name">Jeevika R</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i data-lucide="mail"></i></div>
+            <h4>Email Contact</h4>
+            <p><a href="mailto:jeevikasathiya06@gmail.com"
+                class="data-link-email-href data-field-email">jeevikasathiya06@gmail.com</a></p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i data-lucide="phone"></i></div>
+            <h4>Phone Number</h4>
+            <p class="data-field-phone">+91 7397227878</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i data-lucide="linkedin"></i></div>
+            <h4>LinkedIn Profile</h4>
+            <p><a href="https://www.linkedin.com/in/jeevika-r-939074353" class="data-link-linkedin data-field-linkedin"
+                target="_blank" rel="noopener">linkedin.com/in/jeevika-r</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <a href="#hero" class="footer-logo">JEEVIKA R</a>
+        <p>Electrical and Electronics Engineering Student</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#ats-resume">ATS Resume</a>
+      </div>
+      <div class="footer-right">
+        <p>&copy; <span id="currentYear">2026</span> Jeevika R. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
