@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneVal = inputPhone.value.trim() || '+91 7397227878';
     const emailVal = inputEmail.value.trim() || 'jeevikasathiya06@gmail.com';
     const linkedinVal = inputLinkedin.value.trim() || '[Add LinkedIn Profile]';
-    const githubVal = inputGithub.value.trim() || '[Add GitHub Profile]';
+    const githubVal = inputGithub.value.trim() || 'github.com/RJEEVIKA06';
 
     // Update all matching elements by class name
     document.querySelectorAll('.data-field-name').forEach(el => el.textContent = nameVal);
